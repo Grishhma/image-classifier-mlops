@@ -1,16 +1,39 @@
 # 🖼️ Image Classifier MLOps Pipeline
 
-An end-to-end demonstration of a production-ready MLOps workflow for an image classification model, featuring:
+An end-to-end MLOps workflow: train a PyTorch model, track with MLflow, package in Docker, and schedule daily retraining via Airflow.
 
-- **Model Training**: Transfer-learning with PyTorch  
-- **Experiment Tracking**: MLflow for logging params, metrics & artifacts  
-- **Containerization**: Dockerfile to package all dependencies  
-- **Workflow Orchestration**: Apache Airflow DAG to schedule automated daily retraining
-- 
-# ⚙️ Prerequisites
-- Python 3.10+
-- Docker & Docker Compose
-- Git (optional, for version control)
+
+
+## 🔍 Overview
+
+This project demonstrates a production-ready pipeline for image classification:
+
+1. **Model**: Transfer-learning on ResNet-18 (PyTorch)  
+2. **Tracking**: MLflow logs params, metrics & artifacts  
+3. **Containerization**: Docker ensures reproducibility  
+4. **Orchestration**: Airflow DAG runs `docker run` daily  
+
+
+
+## 🛠️ Tech Stack
+
+- **PyTorch** – model definition & training  
+- **MLflow** – experiment tracking & artifact storage  
+- **Docker** – container runtime  
+- **Apache Airflow** – DAG scheduling  
+- **Docker Compose** – stand up Airflow services  
+
+
+
+## 🏗️ Architecture Diagram
+
+```text
++-----------+      +---------+      +---------+      +-------------+
+| PyTorch   | ---> | MLflow  | ---> | Docker  | ---> | Airflow DAG |
+| train.py  |      | UI:5000 |      | image-  |      | schedule    |
++-----------+      +---------+      | classifier |  
+                                      +---------+
+```
 
 # 🚀 Quick Start
 1. Clone & Prepare
