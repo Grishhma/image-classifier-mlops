@@ -1,0 +1,8 @@
+torch 
+torchvision
+mlflow
+pandas
+numpy
+scikit-learn
+opencv-python
+apache-airflow==2.5.1
